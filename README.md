@@ -2,6 +2,36 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
+## EasyTask - Enterprise-Level Task Management App
+
+A scalable Angular-based task management application designed for efficient enterprise workflow handling. EasyTask is a great starting point for learning Angular while building something practical.
+
+## Features  
+
+- **Dynamic User Selection** – Choose a user to view personalized tasks.  
+- **Task Filtering** – Users' assigned tasks are displayed dynamically.  
+- **Standalone Angular Components** – Modular architecture for scalability.  
+- **Modern Control Flow** – Utilizes `@for` and `@if` for cleaner template logic.  
+
+## Usage
+
+- Select a user to view their assigned tasks.
+- Future enhancements will include task addition and management functionality.
+
+## Technologies Used
+
+- Angular 17+
+- TypeScript
+- Standalone Components
+- Signals API
+- Control Flow Syntax (@for, @if)
+
+## Future Improvements
+
+- Implement authentication & role-based access.
+- Database integration for persistent data.
+- Task addition/edit functionality.
+
 ## Development server
 
 To start a local development server, run:
