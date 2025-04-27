@@ -1,8 +1,14 @@
+@if(isAddTasks) {
+    <app-new-task (cancel)="onCancelAddingTask()" (addTask)="onAddingTask($event)"></app-new-task>
+}
+<!-- If this isAddTasks is true than only it renders this new-task component -->
+<!-- And this isAddTasks will be true only if we click on Add Tasks button. -->
+
 <section id="tasks">
     <header>
         <h2>{{ name }}'s Tasks</h2>
         <menu>
-            <button type="button">Add Tasks</button>
+            <button type="button" (click)="onStartAddTasks()">Add Tasks</button>
         </menu>
     </header>
 
@@ -10,7 +16,8 @@
         <!-- Now we have the dummy task data so we can use @for to loop through all the tasks -->
         @for(task of selectedUserTasks; track task.id){
             <li> 
-                <app-task [task]="task"></app-task> 
+                <app-task [task]="task" (complete)="onCompleteTask($event)"></app-task> 
+                <!-- complete is our own custom type with this special variable it gives access to the data that we've emitted. -->
             </li>
         }
     </ul>

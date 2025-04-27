@@ -1,8 +1,13 @@
-<div>
-  <button type="button" (click)="onSelectUser()">
+<app-card>
+  <!-- here special property binding syntax is used this active class is added to this button if selected is true otherwise not. -->
+  <button type="button" [class.active]="selected" (click)="onSelectUser()">   
     <img [src]="imagePath" [alt]="user.name"
     />
     <span>{{ user.name }}</span>
     <!-- accessing these values because of String-Interpolation -->
   </button>
-</div>
+</app-card>
+
+<!-- And using like this to wrap the markup of this component by another component. -->
+<!-- By default this markup will not displayed to displayed this markup we have to use Content Projection -->
+<!-- So we can use ng-content inside the app-card component template and then that ng-content element will replace with this wrapped markup. -->

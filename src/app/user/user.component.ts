@@ -1,10 +1,13 @@
 import { Component, EventEmitter, Input, Output, output} from '@angular/core';
 
+import { CardComponent } from '../shared/card/card.component';
+
 import { type User } from './user.model';   //adding type to make it clear that we're importing type definitions but it's not required technically.
 
 @Component({
   selector : 'app-user',
   standalone : true,
+  imports : [CardComponent],
   templateUrl : './user.component.html',
   styleUrl : './user.component.css'
 })
@@ -17,6 +20,8 @@ export class UserComponent {
 
   // rather having three inputs with string type we can have one input with object type-
   @Input({ required: true }) user !: User;
+
+  @Input({ required: true }) selected !: boolean;    //To set the user if it's selected or not.
 
   @Output() select = new EventEmitter<string>();  //this is our custom event and we can access this on our parent component.
   // this generic type doesn't required here but we can add for extra type safety.
