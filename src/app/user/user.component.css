@@ -16,6 +16,7 @@ button {
 button:hover, button:active, .active {
     background-color: #9965dd;
     color: #150722;
+    transition: all 1.5s cubic-bezier(0.29, 1.01, 1, -0.68);
 }
 
 img {

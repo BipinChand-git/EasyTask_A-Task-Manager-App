@@ -1,22 +1,28 @@
-# Essentials
-
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
-
-## EasyTask - Enterprise-Level Task Management App
+# EasyTask - Enterprise-Level Task Management App
 
 A scalable Angular-based task management application designed for efficient enterprise workflow handling. EasyTask is a great starting point for learning Angular while building something practical.
 
-## Features  
+## Features
 
-- **Dynamic User Selection** – Choose a user to view personalized tasks.  
-- **Task Filtering** – Users' assigned tasks are displayed dynamically.  
-- **Standalone Angular Components** – Modular architecture for scalability.  
-- **Modern Control Flow** – Utilizes `@for` and `@if` for cleaner template logic.  
+- Dynamic User Selection – Choose a user to view personalized tasks.
+- Task Filtering – Users' assigned tasks are displayed dynamically.
+- Standalone Angular Components – Modular architecture for scalability.
+- Modern Control Flow – Utilizes @for and @if for cleaner template logic.
+- Dependency Injection for Services – Ensures efficient task state management across components.
+- Task Management Service – Centralized service for handling task operations, eliminating redundant component logic.
+- LocalStorage Persistence – Automatically retains tasks across sessions.
+- Signals API Integration – Enhances responsiveness and state management.
+- Content Projection (ng-content) – Allows flexible, reusable component structures.
+- Two-Way Binding for Forms – Streamlines input handling and task creation.
+- Angular Pipes for Date Formatting – Formats due dates for improved readability.
+- Task Completion & Removal – Removes tasks efficiently using an injectable service.
 
 ## Usage
 
 - Select a user to view their assigned tasks.
-- Future enhancements will include task addition and management functionality.
+- Add new tasks using a dynamic modal dialog with two-way binding.
+- Complete and remove tasks seamlessly using the service.
+- Future enhancements will include authentication and database integration for persistence.
 
 ## Technologies Used
 
@@ -25,22 +31,29 @@ A scalable Angular-based task management application designed for efficient ente
 - Standalone Components
 - Signals API
 - Control Flow Syntax (@for, @if)
+- Dependency Injection for Services
+- LocalStorage for Persistent Data
+- Content Projection (ng-content)
+- Angular Pipes for Formatting
 
 ## Future Improvements
 
 - Implement authentication & role-based access.
 - Database integration for persistent data.
-- Task addition/edit functionality.
 
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+ng serve or npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+
+## Essentials
+
+This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
 
 ## Code scaffolding
 
