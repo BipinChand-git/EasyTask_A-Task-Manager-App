@@ -6,6 +6,8 @@ import { NewTaskComponent } from './new-task/new-task.component';
 
 import  { NewTaskData } from './task/task.model';
 
+import { TasksService } from './tasks.service';
+
 @Component({
   selector: 'app-tasks',
   standalone: true,
@@ -17,41 +19,24 @@ export class TasksComponent {
   @Input({ required: true }) userId !: string;
   @Input({ required: true }) name !: string;
 
-  // Creating a dummy tasks here so we can add these tasks from this tasks array-
-  tasks = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary: 'Learn all the basic and advanced features of Angular and how to apply them.',
-      dueDate: '2025-06-01',
-    },
-    {
-      id: 't2',
-      userId: 'u3',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2025-06-30',
-    },
-    {
-      id: 't3',
-      userId: 'u3',
-      title: 'Prepare issue template',
-      summary: 'Prepare and describe an issue template which will help with project management',
-      dueDate: '2025-06-15',
-    },
-  ];
+  // Now using service to manages our tasks
+
+  // private tasksService = new TasksService();
+  // we actually have to instantiate a service.
+  // But this approach have a problem if we use this service in different component.
+  // There we have to also create instance of service. and at last if we make changes in any component it will not reflected on other component.
+  // And we would be operating on different instances of this tasksService.
+
+  // So we will use Dependency Injection instead, another powerful tool offered by angular.
+  constructor(private tasksService : TasksService){}
+  // and we have to use injectable in service to register this instance.
 
   // using getter to compute the task or filter out the task that belongs to the specific user-
   get selectedUserTasks() {
-    return this.tasks.filter((task) => task.userId === this.userId);
+    return this.tasksService.getUserTasks(this.userId);
   }
 
-  onCompleteTask(id: string) {
-    this.tasks = this.tasks.filter((task) => task.id !== id);
-    // It will filter out or return the task that not matches the id of task that we completed.
-    // Basically to complete task or delete the specific task which we click as complete.
-  }
+  // onCompleteTask(id: string) {}  //no longer needed after using services
 
   isAddTasks = false;
   // This method is to open the dialog when we click on AddTask.
@@ -64,15 +49,8 @@ export class TasksComponent {
     this.isAddTasks = false;
   }
 
-  onAddingTask(newTask : NewTaskData){
-    // unshift will add task at the beginning.
-    this.tasks.unshift({
-      id : new Date().getTime().toString(),   //to get unique Id
-      title : newTask.title,
-      summary : newTask.summary,
-      dueDate : newTask.date,
-      userId : this.userId,   //as it holds the currently selected userId.
-    });
-    this.isAddTasks = false;  //to close the modal
-  }
+  // onAddingTask(newTask : NewTaskData){
+  //   this.isAddTasks = false;  //to close the modal
+  // }
+  // As we have removed the addTask custom event as using service so this method also no longer needed.
 }
