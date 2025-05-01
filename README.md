@@ -2,6 +2,8 @@
 
 A scalable Angular-based task management application designed for efficient enterprise workflow handling. EasyTask is a great starting point for learning Angular while building something practical.
 
+## Preview: easytask-angular-project.web.app
+
 ## Features
 
 - Dynamic User Selection – Choose a user to view personalized tasks.
